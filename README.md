@@ -16,6 +16,17 @@ cd client && npm install && npm run dev   # http://localhost:5173
 
 Фронтенд проксирует запросы `/api/*` на сервер (см. `client/vite.config.ts`).
 
+## Публикация (Render)
+
+Проект настроен как единый сервис: `npm run build` собирает фронтенд, после чего Express (`npm start`) раздаёт статику и API из одного процесса.
+
+1. Зайдите на [render.com](https://render.com) и авторизуйтесь через GitHub.
+2. New → Web Service → выберите репозиторий `zakupki-monitor`.
+3. Render подхватит `render.yaml` автоматически (Build Command: `npm run build`, Start Command: `npm start`).
+4. Нажмите Deploy — через пару минут приложение будет доступно по адресу вида `https://zakupki-monitor.onrender.com`.
+
+На бесплатном плане Render диск не персистентный между деплоями — данные реестра сохраняются между обращениями, но сбрасываются при новом деплое/перезапуске образа.
+
 ## Возможности
 
 - Реестр закупок с фиксированными заголовками и прокруткой.
