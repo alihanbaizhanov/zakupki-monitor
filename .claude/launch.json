@@ -18,6 +18,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["start"],
       "port": 4000
+    },
+    {
+      "name": "pages-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "client", "run", "preview:pages", "--", "--port", "4173"],
+      "port": 4173
     }
   ]
 }

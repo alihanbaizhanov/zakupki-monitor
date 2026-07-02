@@ -7,6 +7,7 @@ import { PurchaseTable } from './components/PurchaseTable';
 import './App.css';
 
 const ROLE_KEY = 'zakupki_role';
+const IS_STATIC = import.meta.env.VITE_STATIC === 'true';
 
 export default function App() {
   const [role, setRole] = useState<Role>(
@@ -37,6 +38,7 @@ export default function App() {
 
   useEffect(() => {
     load();
+    if (IS_STATIC) return;
     const interval = setInterval(load, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -75,6 +77,13 @@ export default function App() {
           </button>
         </div>
       </header>
+
+      {IS_STATIC && (
+        <div className="static-banner">
+          Демо-режим (GitHub Pages): данные хранятся только в этом браузере и не являются общими.
+          Для полноценной работы с единым реестром используйте развёрнутую версию с сервером.
+        </div>
+      )}
 
       <SummaryPanel purchases={purchases} />
 

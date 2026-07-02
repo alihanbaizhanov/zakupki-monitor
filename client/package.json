@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "tsc -b && vite build --base=/zakupki-monitor/ --mode pages",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:pages": "vite preview --base=/zakupki-monitor/"
   },
   "dependencies": {
     "react": "^19.2.7",
